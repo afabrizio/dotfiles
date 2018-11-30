@@ -1,14 +1,3 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2016 Mar 25
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -27,6 +16,13 @@ else
   set backup		" keep a backup file (restore to previous version)
   set undofile		" keep an undo file (undo changes after closing)
 endif
+
+" Vim buffers, swap files, and backups are stored in .vim/tmp/ directory
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp//
+
+" General vim behavior
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -34,6 +30,10 @@ set incsearch		" do incremental searching
 set number
 set nowrap
 set tabstop=4 shiftwidth=4 noexpandtab
+
+" Folding Behavior
+set foldmethod=syntax	" folds are defined by syntax highlighting
+set foldlevel=20	" by default open all folds when file is opened
 
 " Turns on Vim's omnicompletion
 filetype plugin on

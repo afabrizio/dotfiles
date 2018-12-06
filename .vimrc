@@ -34,6 +34,7 @@ set tabstop=4 shiftwidth=4 noexpandtab
 " Folding Behavior
 set foldmethod=syntax	" folds are defined by syntax highlighting
 set foldlevel=20	" by default open all folds when file is opened
+let g:xml_syntax_folding=1
 
 " Turns on Vim's omnicompletion
 filetype plugin on
@@ -42,9 +43,13 @@ set omnifunc=syntaxcomplete#Complete
 " - VimPlug Settings
 call plug#begin()
 Plug 'ternjs/tern_for_vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'dikiaap/minimalist'
 call plug#end()
+" - Use JSX syntax only in .jsx files
+let g:jsx_ext_required=1
 
 " - Color Scheme (minimalist)
 set t_Co=256

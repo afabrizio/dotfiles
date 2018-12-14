@@ -17,6 +17,31 @@ else
   set undofile		" keep an undo file (undo changes after closing)
 endif
 
+" Turns on Vim's omnicompletion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" - VimPlug Settings
+call plug#begin()
+Plug 'ternjs/tern_for_vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'vim-python/python-syntax'
+" Plug 'tmhedberg/SimpylFold'
+Plug 'dikiaap/minimalist'
+call plug#end()
+" - Use JSX syntax only in .jsx files
+let g:jsx_ext_required=1
+" - Enable Python support
+let g:python_highlight_all=0
+" - Enable python folding support
+let g:SimpylFold_docstring_preview=0
+
+" - Color Scheme (minimalist)
+set t_Co=256
+syntax on
+colorscheme minimalist
 " Vim buffers, swap files, and backups are stored in .vim/tmp/ directory
 set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
@@ -28,33 +53,18 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set number
+" disable text wrapping
 set nowrap
-set tabstop=4 shiftwidth=4 noexpandtab
+set textwidth=0
+set wrapmargin=0
+set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=1
 
+set list " show invisibles
 " Folding Behavior
 set foldmethod=syntax	" folds are defined by syntax highlighting
 set foldlevel=20	" by default open all folds when file is opened
 let g:xml_syntax_folding=1
 
-" Turns on Vim's omnicompletion
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
-" - VimPlug Settings
-call plug#begin()
-Plug 'ternjs/tern_for_vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
-Plug 'dikiaap/minimalist'
-call plug#end()
-" - Use JSX syntax only in .jsx files
-let g:jsx_ext_required=1
-
-" - Color Scheme (minimalist)
-set t_Co=256
-syntax on
-colorscheme minimalist
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -85,7 +95,7 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+  "  filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -106,7 +116,7 @@ if has("autocmd")
 
 else
 
- set autoindent		" always set autoindenting on
+ " set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 

@@ -28,15 +28,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-python/python-syntax'
-" Plug 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 Plug 'dikiaap/minimalist'
 call plug#end()
 " - Use JSX syntax only in .jsx files
 let g:jsx_ext_required=1
 " - Enable Python support
-let g:python_highlight_all=0
+let g:python_highlight_all=1
 " - Enable python folding support
-let g:SimpylFold_docstring_preview=0
+let g:SimpylFold_docstring_preview=1
 
 " - Color Scheme (minimalist)
 set t_Co=256
@@ -64,6 +64,9 @@ set list " show invisibles
 set foldmethod=syntax	" folds are defined by syntax highlighting
 set foldlevel=20	" by default open all folds when file is opened
 let g:xml_syntax_folding=1
+" Prevents unwanted unfolding when inserting text that might affect folding:
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries

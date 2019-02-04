@@ -57,7 +57,7 @@ set number
 set nowrap
 set textwidth=0
 set wrapmargin=0
-set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=1
+set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 set list " show invisibles
 " Folding Behavior

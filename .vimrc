@@ -48,16 +48,19 @@ set directory=~/.vim/tmp//
 set undodir=~/.vim/tmp//
 
 " General vim behavior
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50 " keep 50 lines of command line history
+set ruler " show the cursor position all the time
+set showcmd " display incomplete commands
+set incsearch " do incremental searching
 set number
 " disable text wrapping
 set nowrap
 set textwidth=0
 set wrapmargin=0
-set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+" - Space-Indenting:
+set autoindent expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" - Tab-Indenting:
+" set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 set list " show invisibles
 " Folding Behavior

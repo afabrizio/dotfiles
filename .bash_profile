@@ -18,3 +18,7 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/afabrizio/.sdkman"
 [[ -s "/Users/afabrizio/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/afabrizio/.sdkman/bin/sdkman-init.sh"
+
+# custom CLI programs
+export M2_HOME=/Users/afabrizio/Applications/apache-maven-3.6.1
+export PATH=$PATH:/Users/afabrizio/bin:$M2_HOME/bin

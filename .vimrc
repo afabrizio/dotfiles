@@ -57,15 +57,26 @@ set number
 set nowrap
 set textwidth=0
 set wrapmargin=0
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 " - Space-Indenting:
-set autoindent expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" set  expandtab
 " - Tab-Indenting:
-" set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+set noexpandtab
 
-set list " show invisibles
+" - show invisibles
+set list
+set list
+set listchars=
+set listchars+=trail:·
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
 " Folding Behavior
-set foldmethod=syntax	" folds are defined by syntax highlighting
-set foldlevel=20	" by default open all folds when file is opened
+set foldmethod=syntax " folds are defined by syntax highlighting
+set foldlevel=20  " by default open all folds when file is opened
 let g:xml_syntax_folding=1
 " Prevents unwanted unfolding when inserting text that might affect folding:
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
